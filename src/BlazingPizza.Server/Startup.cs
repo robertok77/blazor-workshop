@@ -57,6 +57,7 @@ namespace BlazingPizza.Server
             //        return context.Response.WriteAsync("<script>window.close();</script>");
             //    };
             //});
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
