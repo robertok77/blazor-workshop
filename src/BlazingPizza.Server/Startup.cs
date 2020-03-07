@@ -45,6 +45,8 @@ namespace BlazingPizza.Server
                     googleOptions.ClientId = Configuration["Authentication:Google:ConsumerKey"];
                     googleOptions.ClientSecret = Configuration["Authentication:Google:ConsumerSecret"];
                 });
+
+
             //.AddTwitter(twitterOptions =>
             //{
             //    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
