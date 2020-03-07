@@ -40,16 +40,21 @@ namespace BlazingPizza.Server
                     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 })
                 .AddCookie()
-                .AddTwitter(twitterOptions =>
+                .AddGoogle(googleOptions =>
                 {
-                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
-                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
-                    twitterOptions.Events.OnRemoteFailure = (context) =>
-                    {
-                        context.HandleResponse();
-                        return context.Response.WriteAsync("<script>window.close();</script>");
-                    };
+                    googleOptions.ClientId = Configuration["Authentication:Google:ConsumerKey"];
+                    googleOptions.ClientSecret = Configuration["Authentication:Google:ConsumerSecret"];
                 });
+            //.AddTwitter(twitterOptions =>
+            //{
+            //    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+            //    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+            //    twitterOptions.Events.OnRemoteFailure = (context) =>
+            //    {
+            //        context.HandleResponse();
+            //        return context.Response.WriteAsync("<script>window.close();</script>");
+            //    };
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

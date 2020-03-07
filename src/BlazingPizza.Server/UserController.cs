@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Google;
 
 namespace BlazingPizza.Server
 {
@@ -30,7 +31,8 @@ namespace BlazingPizza.Server
             }
 
             await HttpContext.ChallengeAsync(
-                TwitterDefaults.AuthenticationScheme,
+                //TwitterDefaults.AuthenticationScheme,
+                GoogleDefaults.AuthenticationScheme,
                 new AuthenticationProperties { RedirectUri = redirectUri });
         }
 
